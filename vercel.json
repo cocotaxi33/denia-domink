@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/event.ics",
+      "headers": [
+        { "key": "Content-Type", "value": "text/calendar; charset=utf-8" },
+        { "key": "Content-Disposition", "value": "inline; filename=\"Denia-Dominik-Hochzeit.ics\"" }
+      ]
+    }
+  ]
+}
