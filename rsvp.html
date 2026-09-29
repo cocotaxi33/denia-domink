@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#FFF4EF">
+<meta name="theme-color" content="#FCF0E6">
 <meta name="robots" content="noindex">
 <title>Denia & Dominik — Seid ihr dabei?</title>
 <meta property="og:title" content="Denia & Dominik — Seid ihr dabei?">
@@ -11,31 +11,31 @@
 <meta property="og:image" content="https://denia-und-dominik.de/preview.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FFF4EF; --card:#FFFFFF; --line:#EBD8CF; --field:#E3CFC5;
-    --red:#D8261D; --red-btn:#C8231A; --red-btn-hover:#A91C14; --red-text:#8A1710;
-    --tint:#FCE3DE; --seg:#F5E3DA; --ink:#2B2220; --ink-2:#3A2E2A; --soft:#6B5A54;
+    --bg:#FCF0E6; --card:#FFFFFF; --line:#EFD9C6; --field:#E7CCB4;
+    --red:#E1352A; --red-btn:#C32A20; --red-btn-hover:#A82219; --red-text:#8A1710;
+    --tint:#F6E4D3; --seg:#F6E4D3; --ink:#2C2A28; --ink-2:#3A3431; --soft:#6E635B;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.45 'Barlow',system-ui,sans-serif}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.45 'Fredoka',system-ui,sans-serif}
   a{color:#B01F16}
   a:hover{color:var(--red-text)}
   .wrap{max-width:560px;margin:0 auto;padding:20px 20px 48px;display:flex;flex-direction:column;gap:28px}
   .top{display:flex;justify-content:space-between;align-items:baseline}
-  .mono{font-family:'Caprasimo',Georgia,serif;font-size:18px;color:var(--red);text-decoration:none}
+  .mono{font-family:'Bagel Fat One',Georgia,serif;font-size:20px;color:var(--red);text-decoration:none}
   .date{font-size:14px;color:var(--soft);letter-spacing:.04em;text-transform:uppercase}
-  .photo{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px;margin-top:16px}
-  .h{font-family:'Caprasimo',Georgia,serif;font-weight:400;color:var(--red);margin:0}
-  h1.h{font-size:38px;line-height:1.05}
+  .photo{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:18px;margin-top:16px;box-shadow:0 10px 26px rgba(44,42,40,.12)}
+  .h{font-family:'Bagel Fat One',Georgia,serif;font-weight:400;color:var(--red);margin:0}
+  h1.h{font-size:36px;line-height:1.1}
   h2.h{font-size:22px;line-height:1.2}
   .lead{margin:10px 0 0;color:var(--ink-2)}
   .hint{margin:4px 0 0;font-size:14px;color:var(--soft)}
   section{display:flex;flex-direction:column;gap:12px}
   .lbl{display:block;font-size:14px;font-weight:600;color:var(--ink-2);margin:0 0 6px}
-  .inp{display:block;width:100%;height:48px;padding:0 14px;border:1.5px solid var(--field);border-radius:10px;background:#fff;font:400 16px 'Barlow',sans-serif;color:var(--ink);appearance:none;-webkit-appearance:none}
+  .inp{display:block;width:100%;height:48px;padding:0 14px;border:1.5px solid var(--field);border-radius:10px;background:#fff;font:400 16px 'Fredoka',sans-serif;color:var(--ink);appearance:none;-webkit-appearance:none}
   select.inp{background-image:linear-gradient(45deg,transparent 50%,var(--soft) 50%),linear-gradient(135deg,var(--soft) 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 15px) 21px;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
   textarea.inp{height:128px;padding:12px 14px;resize:vertical;line-height:1.4}
   .inp:focus{outline:none;border-color:var(--red-btn);box-shadow:0 0 0 3px rgba(200,35,26,.15)}
@@ -43,21 +43,21 @@
   .row2{display:flex;gap:10px}
   .row2>div{flex:1;min-width:0}
   .choices{display:flex;gap:10px}
-  .choice{flex:1;min-height:64px;border:2px solid var(--field);background:#fff;border-radius:14px;font:600 17px 'Barlow',sans-serif;color:var(--ink);cursor:pointer}
+  .choice{flex:1;min-height:64px;border:2px solid var(--field);background:#fff;border-radius:14px;font:600 17px 'Fredoka',sans-serif;color:var(--ink);cursor:pointer}
   .choice[aria-pressed="true"]{border-color:var(--red-btn);background:var(--red-btn);color:#fff}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:14px}
   .card-head{display:flex;justify-content:space-between;align-items:center;min-height:24px}
   .card-head span{font-weight:600;font-size:15px;color:var(--red-text)}
   .seg{display:flex;background:var(--seg);border-radius:10px;padding:4px;gap:4px}
-  .seg button{flex:1;height:40px;border:0;border-radius:8px;background:transparent;font:500 15px 'Barlow',sans-serif;color:#5A4A45;cursor:pointer}
+  .seg button{flex:1;height:40px;border:0;border-radius:8px;background:transparent;font:500 15px 'Fredoka',sans-serif;color:#5A4A45;cursor:pointer}
   .seg button[aria-pressed="true"]{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 3px rgba(60,30,20,.15)}
-  .ghost{height:48px;width:100%;border:1.5px dashed #D2B5A8;border-radius:12px;background:transparent;font:600 15px 'Barlow',sans-serif;color:var(--red-text);cursor:pointer}
-  .primary{height:56px;width:100%;border:0;border-radius:14px;background:var(--red-btn);color:#fff;font:600 18px 'Barlow',sans-serif;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center}
+  .ghost{height:48px;width:100%;border:1.5px dashed #D2B5A8;border-radius:12px;background:transparent;font:600 15px 'Fredoka',sans-serif;color:var(--red-text);cursor:pointer}
+  .primary{height:56px;width:100%;border:0;border-radius:14px;background:var(--red-btn);color:#fff;font:600 18px 'Fredoka',sans-serif;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center}
   .primary:hover{background:var(--red-btn-hover);color:#fff}
   .primary:disabled{opacity:.6;cursor:wait}
   .primary.dark{background:var(--ink)}
   .primary.dark:hover{background:#000}
-  .link{border:0;background:none;padding:0;font:500 14px 'Barlow',sans-serif;color:var(--red-text);text-decoration:underline;cursor:pointer;min-height:44px}
+  .link{border:0;background:none;padding:0;font:500 14px 'Fredoka',sans-serif;color:var(--red-text);text-decoration:underline;cursor:pointer;min-height:44px}
   .check{display:flex;gap:10px;align-items:center;font-size:16px;min-height:44px;cursor:pointer}
   .check input{width:22px;height:22px;margin:0;accent-color:var(--red-btn);flex:none}
   .small{font-size:13px;color:var(--soft);margin:0}
@@ -69,8 +69,8 @@
   .summary{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;font-size:15px}
   .summary b{color:var(--red-text)}
   .linkbox{background:var(--tint);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
-  .linkbox code{font:500 14px 'Barlow',sans-serif;word-break:break-all;color:var(--ink-2)}
-  .outline{height:44px;border:1.5px solid var(--red-btn);border-radius:10px;background:#fff;font:600 15px 'Barlow',sans-serif;color:var(--red-text);cursor:pointer}
+  .linkbox code{font:500 14px 'Fredoka',sans-serif;word-break:break-all;color:var(--ink-2)}
+  .outline{height:44px;border:1.5px solid var(--red-btn);border-radius:10px;background:#fff;font:600 15px 'Fredoka',sans-serif;color:var(--red-text);cursor:pointer}
   [hidden]{display:none!important}
 </style>
 </head>
