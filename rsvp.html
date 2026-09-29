@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FFF4EF">
+<meta name="robots" content="noindex">
+<title>Denia & Dominik — Seid ihr dabei?</title>
+<meta property="og:title" content="Denia & Dominik — Seid ihr dabei?">
+<meta property="og:description" content="Bitte gebt uns bis zum 1. April 2027 Bescheid.">
+<meta property="og:image" content="https://denia-und-dominik.de/preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFF4EF; --card:#FFFFFF; --line:#EBD8CF; --field:#E3CFC5;
+    --red:#D8261D; --red-btn:#C8231A; --red-btn-hover:#A91C14; --red-text:#8A1710;
+    --tint:#FCE3DE; --seg:#F5E3DA; --ink:#2B2220; --ink-2:#3A2E2A; --soft:#6B5A54;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.45 'Barlow',system-ui,sans-serif}
+  a{color:#B01F16}
+  a:hover{color:var(--red-text)}
+  .wrap{max-width:560px;margin:0 auto;padding:20px 20px 48px;display:flex;flex-direction:column;gap:28px}
+  .top{display:flex;justify-content:space-between;align-items:baseline}
+  .mono{font-family:'Caprasimo',Georgia,serif;font-size:18px;color:var(--red);text-decoration:none}
+  .date{font-size:14px;color:var(--soft);letter-spacing:.04em;text-transform:uppercase}
+  .photo{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px;margin-top:16px}
+  .h{font-family:'Caprasimo',Georgia,serif;font-weight:400;color:var(--red);margin:0}
+  h1.h{font-size:38px;line-height:1.05}
+  h2.h{font-size:22px;line-height:1.2}
+  .lead{margin:10px 0 0;color:var(--ink-2)}
+  .hint{margin:4px 0 0;font-size:14px;color:var(--soft)}
+  section{display:flex;flex-direction:column;gap:12px}
+  .lbl{display:block;font-size:14px;font-weight:600;color:var(--ink-2);margin:0 0 6px}
+  .inp{display:block;width:100%;height:48px;padding:0 14px;border:1.5px solid var(--field);border-radius:10px;background:#fff;font:400 16px 'Barlow',sans-serif;color:var(--ink);appearance:none;-webkit-appearance:none}
+  select.inp{background-image:linear-gradient(45deg,transparent 50%,var(--soft) 50%),linear-gradient(135deg,var(--soft) 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 15px) 21px;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+  textarea.inp{height:128px;padding:12px 14px;resize:vertical;line-height:1.4}
+  .inp:focus{outline:none;border-color:var(--red-btn);box-shadow:0 0 0 3px rgba(200,35,26,.15)}
+  .inp.err{border-color:var(--red-btn);background:#FFF8F6}
+  .row2{display:flex;gap:10px}
+  .row2>div{flex:1;min-width:0}
+  .choices{display:flex;gap:10px}
+  .choice{flex:1;min-height:64px;border:2px solid var(--field);background:#fff;border-radius:14px;font:600 17px 'Barlow',sans-serif;color:var(--ink);cursor:pointer}
+  .choice[aria-pressed="true"]{border-color:var(--red-btn);background:var(--red-btn);color:#fff}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:14px}
+  .card-head{display:flex;justify-content:space-between;align-items:center;min-height:24px}
+  .card-head span{font-weight:600;font-size:15px;color:var(--red-text)}
+  .seg{display:flex;background:var(--seg);border-radius:10px;padding:4px;gap:4px}
+  .seg button{flex:1;height:40px;border:0;border-radius:8px;background:transparent;font:500 15px 'Barlow',sans-serif;color:#5A4A45;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 3px rgba(60,30,20,.15)}
+  .ghost{height:48px;width:100%;border:1.5px dashed #D2B5A8;border-radius:12px;background:transparent;font:600 15px 'Barlow',sans-serif;color:var(--red-text);cursor:pointer}
+  .primary{height:56px;width:100%;border:0;border-radius:14px;background:var(--red-btn);color:#fff;font:600 18px 'Barlow',sans-serif;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center}
+  .primary:hover{background:var(--red-btn-hover);color:#fff}
+  .primary:disabled{opacity:.6;cursor:wait}
+  .primary.dark{background:var(--ink)}
+  .primary.dark:hover{background:#000}
+  .link{border:0;background:none;padding:0;font:500 14px 'Barlow',sans-serif;color:var(--red-text);text-decoration:underline;cursor:pointer;min-height:44px}
+  .check{display:flex;gap:10px;align-items:center;font-size:16px;min-height:44px;cursor:pointer}
+  .check input{width:22px;height:22px;margin:0;accent-color:var(--red-btn);flex:none}
+  .small{font-size:13px;color:var(--soft);margin:0}
+  .notice{background:var(--tint);border-radius:14px;padding:14px 16px;font-size:15px;color:var(--ink-2)}
+  .error{background:#FDE7E4;border:1px solid #F2B8B0;color:#8A1710;border-radius:12px;padding:12px 14px;font-size:15px}
+  .foot{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--ink-2)}
+  .sr{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  .summary{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+  .summary b{color:var(--red-text)}
+  .linkbox{background:var(--tint);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
+  .linkbox code{font:500 14px 'Barlow',sans-serif;word-break:break-all;color:var(--ink-2)}
+  .outline{height:44px;border:1.5px solid var(--red-btn);border-radius:10px;background:#fff;font:600 15px 'Barlow',sans-serif;color:var(--red-text);cursor:pointer}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <div class="top">
+      <a class="mono" href="/">D &amp; D</a>
+      <span class="date">29. Mai 2027 · Gevelsberg</span>
+    </div>
+    <img class="photo" id="photo" src="/rsvp-strand.jpg" alt="Denia und Dominik am Strand">
+  </header>
+
+  <div id="loading" class="notice" hidden>Eure Angaben werden geladen …</div>
+  <div id="loadError" class="error" role="alert" hidden>Eure bisherige Antwort konnte nicht geladen werden. Ihr könnt das Formular neu ausfüllen oder uns einfach anrufen.</div>
+
+  <!-- FORMULAR -->
+  <form id="form" novalidate>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div>
+        <h1 class="h" id="formTitle">Seid ihr dabei?</h1>
+        <p class="lead" id="formLead">Bitte gebt uns bis zum <strong>1. April 2027</strong> Bescheid. Eure Angaben könnt ihr später jederzeit über euren persönlichen Link ändern.</p>
+      </div>
+
+      <div id="lateNotice" class="notice" hidden>Die Rückmeldefrist ist vorbei – ihr könnt euch trotzdem hier melden. Ruft uns bitte zusätzlich kurz an, damit wir es sicher mitbekommen.</div>
+
+      <section>
+        <h2 class="h">Kommt ihr?</h2>
+        <div class="choices" role="group" aria-label="Kommt ihr?">
+          <button type="button" class="choice" data-attend="yes" aria-pressed="false">Wir sind dabei!</button>
+          <button type="button" class="choice" data-attend="no" aria-pressed="false">Leider nicht</button>
+        </div>
+      </section>
+
+      <!-- ZUSAGE -->
+      <div id="yesPart" hidden style="display:flex;flex-direction:column;gap:28px">
+        <section>
+          <div>
+            <h2 class="h">Wer kommt?</h2>
+            <p class="hint">Tragt bitte jede Person ein, die mitkommt – auch Kinder.</p>
+          </div>
+          <div id="persons" style="display:flex;flex-direction:column;gap:12px"></div>
+          <button type="button" class="ghost" id="addPerson">+ Weitere Person hinzufügen</button>
+        </section>
+
+        <section>
+          <div>
+            <h2 class="h">Kuchenbuffet</h2>
+            <p class="hint">Nach dem Gottesdienst gibt es Kaffee und Kuchen. Wir freuen uns sehr, wenn ihr einen Kuchen beisteuert.</p>
+          </div>
+          <label class="check"><input type="checkbox" id="cake"> Wir bringen einen Kuchen mit</label>
+          <div id="cakeKindWrap" hidden>
+            <label class="lbl" for="cakeKind">Welchen Kuchen?</label>
+            <input class="inp" id="cakeKind" type="text" maxlength="120" placeholder="z. B. Apfelkuchen">
+          </div>
+        </section>
+      </div>
+
+      <!-- ABSAGE -->
+      <section id="noPart" hidden>
+        <div>
+          <h2 class="h">Schade!</h2>
+          <p class="hint">Danke, dass ihr Bescheid gebt. Wer kann nicht kommen?</p>
+        </div>
+        <div>
+          <label class="lbl" for="absName">Name(n) *</label>
+          <input class="inp" id="absName" type="text" maxlength="200" placeholder="z. B. Anna und Jonas Müller">
+        </div>
+      </section>
+
+      <div id="restPart" hidden style="display:flex;flex-direction:column;gap:28px">
+        <section>
+          <div>
+            <h2 class="h" id="contactTitle">Kontakt für Rückfragen</h2>
+            <p class="hint" id="contactHint">Mindestens eins von beiden. An die E-Mail-Adresse schicken wir euch eine Bestätigung mit eurem persönlichen Änderungslink.</p>
+          </div>
+          <div>
+            <label class="lbl" for="email">E-Mail</label>
+            <input class="inp" id="email" type="email" autocomplete="email" maxlength="200" placeholder="name@beispiel.de">
+          </div>
+          <div>
+            <label class="lbl" for="phone">Telefon</label>
+            <input class="inp" id="phone" type="tel" autocomplete="tel" maxlength="50" placeholder="+49 …">
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h2 class="h">Nachricht an Denia &amp; Dominik</h2>
+            <p class="hint" id="msgHint">Optional. Gibt es Unverträglichkeiten oder Allergien, Essenswünsche, Fragen – oder möchtet ihr uns einfach etwas sagen?</p>
+          </div>
+          <label class="sr" for="message">Nachricht</label>
+          <textarea class="inp" id="message" maxlength="2000" placeholder="Eure Nachricht …"></textarea>
+        </section>
+
+        <div class="hp" aria-hidden="true">
+          <label for="website">Bitte leer lassen</label>
+          <input id="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div id="formError" class="error" role="alert" hidden></div>
+          <button type="submit" class="primary" id="submitBtn">Antwort absenden</button>
+          <p class="small">Wir nutzen eure Angaben nur für die Planung unserer Hochzeit und löschen sie spätestens drei Monate danach. Mehr dazu in der <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- DANKE -->
+  <div id="thanks" hidden style="display:flex;flex-direction:column;gap:20px">
+    <h1 class="h" id="thanksTitle" tabindex="-1">Danke, wir freuen uns!</h1>
+    <p class="lead" style="margin:0" id="thanksText"></p>
+    <div class="summary" id="summary"></div>
+    <div class="linkbox">
+      <b id="linkTitle">Euer persönlicher Link</b>
+      <code id="editLink"></code>
+      <span class="small" id="linkHint" style="color:#5A4A45"></span>
+      <button type="button" class="outline" id="copyLink">Link kopieren</button>
+    </div>
+    <a class="primary dark" id="calBtn" href="/hochzeit.ics">In den Kalender eintragen</a>
+    <button type="button" class="link" id="editAgain" style="align-self:flex-start">Angaben ändern</button>
+  </div>
+
+  <footer class="foot">
+    <span style="font-weight:600">Lieber telefonisch?</span>
+    <span>Denia: <a href="tel:+491726743037">+49 172 6743037</a></span>
+    <span>Dominik: <a href="tel:+4915206423680">+49 1520 6423680</a></span>
+    <span class="small" style="margin-top:10px"><a href="/datenschutz">Datenschutz</a></span>
+  </footer>
+</main>
+
+<template id="personTpl">
+  <div class="card">
+    <div class="card-head">
+      <span class="pnum">Person 1</span>
+      <button type="button" class="link premove" style="min-height:24px">Entfernen</button>
+    </div>
+    <div class="row2">
+      <div><label class="lbl pl-first">Vorname *</label><input class="inp pfirst" type="text" autocomplete="given-name" maxlength="80"></div>
+      <div><label class="lbl pl-last">Nachname *</label><input class="inp plast" type="text" autocomplete="family-name" maxlength="80"></div>
+    </div>
+    <div class="seg" role="group" aria-label="Erwachsene/r oder Kind">
+      <button type="button" class="padult" aria-pressed="true">Erwachsene/r</button>
+      <button type="button" class="pchild" aria-pressed="false">Kind</button>
+    </div>
+    <div class="pagewrap" hidden>
+      <label class="lbl pl-age">Alter am Hochzeitstag</label>
+      <select class="inp page"></select>
+    </div>
+  </div>
+</template>
+
+<script>
+/* ===== Konfiguration =====
+   API_URL = URL der als Web-App bereitgestellten Google-Apps-Script-Datei (endet auf /exec). */
+const API_URL = '';
+const DEADLINE = new Date('2027-04-02T00:00:00+02:00');
+const SITE = 'https://denia-und-dominik.de';
+
+const $ = (s, r = document) => r.querySelector(s);
+const state = { attending: null, persons: [], id: null, uid: 0 };
+
+function newPerson(p = {}) {
+  return { uid: ++state.uid, first: p.first || '', last: p.last || '', kind: p.kind === 'child' ? 'child' : 'adult', age: p.age != null && p.age !== '' ? String(p.age) : '5' };
+}
+
+/* ----- Personen ----- */
+function renderPersons() {
+  const box = $('#persons');
+  box.innerHTML = '';
+  state.persons.forEach((p, i) => {
+    const el = $('#personTpl').content.firstElementChild.cloneNode(true);
+    const idf = 'pf' + p.uid, idl = 'pl' + p.uid, ida = 'pa' + p.uid;
+    $('.pnum', el).textContent = 'Person ' + (i + 1);
+    const rm = $('.premove', el);
+    rm.hidden = state.persons.length < 2;
+    rm.setAttribute('aria-label', 'Person ' + (i + 1) + ' entfernen');
+    rm.onclick = () => { state.persons = state.persons.filter(x => x.uid !== p.uid); renderPersons(); };
+    const f = $('.pfirst', el), l = $('.plast', el);
+    f.id = idf; $('.pl-first', el).htmlFor = idf; f.value = p.first;
+    l.id = idl; $('.pl-last', el).htmlFor = idl; l.value = p.last;
+    f.placeholder = i === 0 ? 'Anna' : 'Vorname';
+    l.placeholder = i === 0 ? 'Müller' : (state.persons[0].last || 'Nachname');
+    f.oninput = () => { p.first = f.value; f.classList.remove('err'); };
+    l.oninput = () => { p.last = l.value; l.classList.remove('err'); };
+    const ad = $('.padult', el), ch = $('.pchild', el), aw = $('.pagewrap', el), sel = $('.page', el);
+    const sync = () => { ad.setAttribute('aria-pressed', p.kind === 'adult'); ch.setAttribute('aria-pressed', p.kind === 'child'); aw.hidden = p.kind !== 'child'; };
+    ad.onclick = () => { p.kind = 'adult'; sync(); };
+    ch.onclick = () => { p.kind = 'child'; sync(); };
+    sel.id = ida; $('.pl-age', el).htmlFor = ida;
+    for (let a = 0; a < 18; a++) {
+      const o = document.createElement('option');
+      o.value = String(a); o.textContent = a === 0 ? 'unter 1 Jahr' : a === 1 ? '1 Jahr' : a + ' Jahre';
+      sel.appendChild(o);
+    }
+    sel.value = p.age;
+    sel.onchange = () => { p.age = sel.value; };
+    sync();
+    box.appendChild(el);
+  });
+}
+
+$('#addPerson').onclick = () => {
+  state.persons.push(newPerson({ last: state.persons[0] ? state.persons[0].last : '' }));
+  renderPersons();
+  const inputs = document.querySelectorAll('#persons .pfirst');
+  inputs[inputs.length - 1].focus();
+};
+
+/* ----- Zusage / Absage ----- */
+function setAttending(v) {
+  state.attending = v;
+  document.querySelectorAll('[data-attend]').forEach(b => b.setAttribute('aria-pressed', b.dataset.attend === v));
+  $('#yesPart').hidden = v !== 'yes';
+  $('#noPart').hidden = v !== 'no';
+  $('#restPart').hidden = !v;
+  if (v === 'yes' && !state.persons.length) { state.persons.push(newPerson()); renderPersons(); }
+  $('#contactTitle').textContent = v === 'no' ? 'Kontakt' : 'Kontakt für Rückfragen';
+  $('#contactHint').textContent = v === 'no'
+    ? 'Optional. Falls sich eure Pläne doch noch ändern, schicken wir euch einen Link, mit dem ihr nachträglich zusagen könnt.'
+    : 'Mindestens eins von beiden. An die E-Mail-Adresse schicken wir euch eine Bestätigung mit eurem persönlichen Änderungslink.';
+  $('#msgHint').textContent = v === 'no'
+    ? 'Optional. Möchtet ihr uns noch etwas mitgeben?'
+    : 'Optional. Gibt es Unverträglichkeiten oder Allergien, Essenswünsche, Fragen – oder möchtet ihr uns einfach etwas sagen?';
+  $('#submitBtn').textContent = v === 'no' ? 'Absage senden' : 'Antwort absenden';
+  hideError();
+}
+document.querySelectorAll('[data-attend]').forEach(b => b.onclick = () => setAttending(b.dataset.attend));
+
+$('#cake').onchange = () => { $('#cakeKindWrap').hidden = !$('#cake').checked; };
+
+/* ----- Validierung & Absenden ----- */
+function showError(msg, focusEl) {
+  const e = $('#formError'); e.textContent = msg; e.hidden = false;
+  if (focusEl) { focusEl.classList.add('err'); focusEl.focus(); } else e.scrollIntoView({ block: 'center', behavior: 'smooth' });
+}
+function hideError() { $('#formError').hidden = true; document.querySelectorAll('.inp.err').forEach(x => x.classList.remove('err')); }
+
+function collect() {
+  return {
+    id: state.id || '',
+    attending: state.attending,
+    persons: state.attending === 'yes' ? state.persons.map(p => ({ first: p.first.trim(), last: p.last.trim(), kind: p.kind, age: p.kind === 'child' ? Number(p.age) : '' })) : [],
+    cake: state.attending === 'yes' && $('#cake').checked,
+    cakeKind: state.attending === 'yes' && $('#cake').checked ? $('#cakeKind').value.trim() : '',
+    absName: state.attending === 'no' ? $('#absName').value.trim() : '',
+    email: $('#email').value.trim(),
+    phone: $('#phone').value.trim(),
+    message: $('#message').value.trim(),
+    website: $('#website').value
+  };
+}
+
+function validate(d) {
+  if (!d.attending) return ['Bitte wählt aus, ob ihr kommt.'];
+  if (d.attending === 'yes') {
+    for (let i = 0; i < d.persons.length; i++) {
+      const cards = document.querySelectorAll('#persons .card');
+      if (!d.persons[i].first) return ['Bitte gebt den Vornamen von Person ' + (i + 1) + ' an.', $('.pfirst', cards[i])];
+      if (!d.persons[i].last) return ['Bitte gebt den Nachnamen von Person ' + (i + 1) + ' an.', $('.plast', cards[i])];
+    }
+    if (!d.email && !d.phone) return ['Bitte gebt eine E-Mail-Adresse oder Telefonnummer für Rückfragen an.', $('#email')];
+  } else if (!d.absName) return ['Bitte gebt an, wer nicht kommen kann.', $('#absName')];
+  if (d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) return ['Die E-Mail-Adresse sieht nicht ganz richtig aus.', $('#email')];
+  return null;
+}
+
+async function api(method, payload) {
+  if (!API_URL) throw new Error('not-configured');
+  const url = method === 'GET' ? API_URL + '?id=' + encodeURIComponent(payload) : API_URL;
+  const res = await fetch(url, method === 'GET' ? {} : { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
+  const json = await res.json();
+  if (!json.ok) throw new Error(json.error || 'error');
+  return json;
+}
+
+$('#form').onsubmit = async (ev) => {
+  ev.preventDefault();
+  hideError();
+  const d = collect();
+  const err = validate(d);
+  if (err) return showError(err[0], err[1]);
+  const btn = $('#submitBtn'), label = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Wird gesendet …';
+  try {
+    const r = await api('POST', d);
+    state.id = r.id;
+    showThanks(d);
+  } catch (e) {
+    showError(e.message === 'not-found'
+      ? 'Diese Antwort wurde nicht gefunden. Bitte füllt das Formular neu aus oder ruft uns an.'
+      : 'Das hat leider nicht geklappt. Bitte versucht es gleich noch einmal oder ruft uns einfach an.');
+  } finally { btn.disabled = false; btn.textContent = label; }
+};
+
+/* ----- Danke ----- */
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+function showThanks(d) {
+  const yes = d.attending === 'yes';
+  const link = SITE + '/rsvp?id=' + state.id;
+  history.replaceState(null, '', '/rsvp?id=' + state.id);
+  $('#form').hidden = true;
+  $('#thanks').hidden = false;
+  $('#photo').src = '/rsvp-paar.jpg';
+  $('#photo').alt = 'Denia und Dominik';
+  $('#thanksTitle').textContent = yes ? 'Danke, wir freuen uns!' : 'Danke fürs Bescheidgeben';
+  $('#thanksText').textContent = yes
+    ? 'Eure Zusage ist bei uns angekommen. Wir freuen uns auf den 29. Mai 2027 mit euch!'
+    : 'Schade, dass ihr nicht dabei sein könnt – wir werden an euch denken.';
+  let html = '<b>Eure Antwort</b>';
+  if (yes) {
+    d.persons.forEach(p => { html += '<span>' + esc(p.first + ' ' + p.last) + ' · ' + (p.kind === 'child' ? 'Kind, ' + (p.age === 0 ? 'unter 1 Jahr' : p.age + (p.age === 1 ? ' Jahr' : ' Jahre')) : 'Erwachsene/r') + '</span>'; });
+    html += '<span>Kuchen: ' + (d.cake ? esc(d.cakeKind || 'ja') : 'nein') + '</span>';
+  } else {
+    html += '<span>Absage: ' + esc(d.absName) + '</span>';
+  }
+  $('#summary').innerHTML = html;
+  $('#linkTitle').textContent = yes ? 'Euer persönlicher Link' : 'Doch noch Zeit?';
+  $('#editLink').textContent = link.replace('https://', '');
+  $('#linkHint').textContent = (yes
+    ? 'Speichert ihn euch – damit könnt ihr eure Angaben bis zur Hochzeit ändern.'
+    : 'Über diesen Link könnt ihr jederzeit nachträglich zusagen.')
+    + (d.email ? ' Wir haben ihn euch auch per E-Mail geschickt.' : '');
+  $('#calBtn').hidden = !yes;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  $('#thanksTitle').focus({ preventScroll: true });
+}
+
+$('#copyLink').onclick = async () => {
+  const text = SITE + '/rsvp?id=' + state.id;
+  try { await navigator.clipboard.writeText(text); $('#copyLink').textContent = 'Kopiert!'; }
+  catch (e) { const r = document.createRange(); r.selectNodeContents($('#editLink')); getSelection().removeAllRanges(); getSelection().addRange(r); }
+  setTimeout(() => { $('#copyLink').textContent = 'Link kopieren'; }, 2000);
+};
+$('#editAgain').onclick = () => {
+  $('#thanks').hidden = true; $('#form').hidden = false;
+  $('#photo').src = '/rsvp-strand.jpg'; $('#photo').alt = 'Denia und Dominik am Strand';
+  setEditHeader();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+function setEditHeader() {
+  $('#formTitle').textContent = 'Eure Antwort ändern';
+  $('#formLead').textContent = 'Hier seht ihr eure bisherigen Angaben. Passt einfach an, was sich geändert hat, und schickt das Formular erneut ab.';
+}
+
+/* ----- Bestehende Antwort laden ----- */
+function fill(d) {
+  state.persons = (d.persons || []).map(newPerson);
+  $('#cake').checked = !!d.cake; $('#cakeKindWrap').hidden = !d.cake;
+  $('#cakeKind').value = d.cakeKind || '';
+  $('#absName').value = d.absName || '';
+  $('#email').value = d.email || '';
+  $('#phone').value = d.phone || '';
+  $('#message').value = d.message || '';
+  setAttending(d.attending);
+  renderPersons();
+}
+
+(async function init() {
+  if (new Date() >= DEADLINE) $('#lateNotice').hidden = false;
+  const id = new URLSearchParams(location.search).get('id');
+  if (!id) return;
+  $('#form').hidden = true; $('#loading').hidden = false;
+  try {
+    const r = await api('GET', id);
+    state.id = id;
+    fill(r.data);
+    setEditHeader();
+  } catch (e) {
+    $('#loadError').hidden = false;
+  } finally { $('#loading').hidden = true; $('#form').hidden = false; }
+})();
+</script>
+</body>
+</html>

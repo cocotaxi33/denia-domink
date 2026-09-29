@@ -6,8 +6,27 @@
     {
       "source": "/event.ics",
       "headers": [
-        { "key": "Content-Type", "value": "text/calendar; charset=utf-8" },
-        { "key": "Content-Disposition", "value": "inline; filename=\"Denia-Dominik-Hochzeit.ics\"" }
+        {
+          "key": "Content-Type",
+          "value": "text/calendar; charset=utf-8"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"Denia-Dominik-Hochzeit.ics\""
+        }
+      ]
+    },
+    {
+      "source": "/hochzeit.ics",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/calendar; charset=utf-8"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"Hochzeit-Denia-Dominik.ics\""
+        }
       ]
     }
   ]
